@@ -96,10 +96,6 @@ class BasicBlock(nn.Module):
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
 
-        self.ca = ChannelAttention(planes)
-        self.sa = SpatialAttention()
-
-
         self.downsample = downsample
         self.stride = stride
 
@@ -112,9 +108,6 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
-
-        out = self.ca(out) * out
-        out = self.sa(out) * out
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -194,6 +187,10 @@ class ResNet(nn.Module):
                                bias=False)
         self.bn1 = norm_layer(self.inplanes)
         self.relu = nn.ReLU(inplace=True)
+
+        self.ca = ChannelAttention(self.inplanes)
+        self.sa = SpatialAttention()
+
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2,
@@ -250,6 +247,8 @@ class ResNet(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
+        x = self.ca(x) * x
+        x = self.sa(x) * x
         x = self.maxpool(x)
 
         x = self.layer1(x)

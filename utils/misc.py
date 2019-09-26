@@ -85,7 +85,7 @@ class AverageMeter(object):
 def get_optimizer(model, args):
     parameters = []
     for name, param in model.named_parameters():
-        if 'fc' in name or 'class' in name or 'last_linear' in name:
+        if 'fc' in name or 'class' in name or 'last_linear' in name or 'ca' in name or 'sa' in name:
             parameters.append({'params': param, 'lr': args.lr * args.lr_fc_times})
         else:
             parameters.append({'params': param, 'lr': args.lr})

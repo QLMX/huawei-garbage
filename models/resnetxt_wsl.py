@@ -45,7 +45,6 @@ def _resnext(arch, block, layers, pretrained, progress, **kwargs):
     return model
 
 
-
 def resnext101_32x8d_wsl(progress=True, **kwargs):
     """Constructs a ResNeXt-101 32x8 model pre-trained on weakly-supervised data
     and finetuned on ImageNet from Figure 5 in
@@ -62,7 +61,7 @@ def resnext101_32x16d_wsl(progress=True, **kwargs):
     """Constructs a ResNeXt-101 32x16 model pre-trained on weakly-supervised data
     and finetuned on ImageNet from Figure 5 in
     `"Exploring the Limits of Weakly Supervised Pretraining" <https://arxiv.org/abs/1805.00932>`_
-    Args:
+    Args:zz
         progress (bool): If True, displays a progress bar of the download to stderr.
     """
     kwargs['groups'] = 32
