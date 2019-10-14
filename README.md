@@ -34,6 +34,7 @@
 
 [方案讲解](https://mp.weixin.qq.com/s/7GhXMXQkBgH_JVcKMjCejQ)
 
-知乎专栏：[ML与DL成长之路](https://zhuanlan.zhihu.com/ai-growth）
+知乎专栏：[ML与DL成长之路](https://zhuanlan.zhihu.com/ai-growth)
 
-如果对你有帮助记得star,后期如果反馈有bug会继续更新
+如果复现过程中有bug，麻烦反馈一下，会优化更新。如果对您有帮助记得给个**star**
+
