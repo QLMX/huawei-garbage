@@ -1,4 +1,4 @@
-## 华为云垃圾分类挑战杯亚军决赛方案分享
+## 华为云垃圾分类挑战杯亚军方案分享
 
 ### 1.代码结构
 
@@ -34,6 +34,6 @@
 
 [方案讲解](https://mp.weixin.qq.com/s/7GhXMXQkBgH_JVcKMjCejQ)
 
-知乎专栏：[ML与DL成长之路](https://zhuanlan.zhihu.com/c_1138029910563020800
+知乎专栏：[ML与DL成长之路](https://zhuanlan.zhihu.com/ai-growth）
 
 如果对你有帮助记得star,后期如果反馈有bug会继续更新
