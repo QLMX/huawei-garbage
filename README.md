@@ -22,15 +22,33 @@
 
 可以直接通过`pip install -r requirements.txt`安装指定的函数包，python版本为3.6，具体的函数包如下：
 
-* pytorch=1.0.1
+* pytorch>=1.0.1
 * torchvision==0.2.2
-* matplotlib==3.1.0
-* numpy==1.16.4
+* matplotlib>=3.1.0
+* numpy>=1.16.4
 * scikit-image
 * pandas
 * sklearn
 
-### 3.方案思路
+注：py3.7训练的话，要修改下面的代码
+`if use_cuda: inputs, targets = inputs.cuda(), targets.cuda(async=True) inputs, targets = torch.autograd.Variable(inputs), torch.autograd.Variable(targets)`
+\#python3.7已经移除了async关键字，而用non_blocking代替。(导致apache-airflow也出了问题)
+\#cuda() 本身也没有async.
+
+就是把 async=True去掉
+
+if use_cuda:
+inputs, targets = inputs.cuda(), targets.cuda()
+inputs, targets = torch.autograd.Variable(inputs), torch.autograd.Variable(targets)`
+
+## 3.运行步骤
+
+1. 建立文件夹data，把garbage_classify全部解压缩到data下
+2. 运行preprocess.py，生成训练集和测试集运行文
+3. 单张显卡的话，修改arg.py 85行 parser.add_argument('--gpu-id', default='0, 1, 2, 3' 为'--gpu-id', default='0'，同时修改 '--train-batch'，'--test-batch'为适当的数字
+4. 运行train.py
+
+### 4.方案思路
 
 [方案讲解](https://mp.weixin.qq.com/s/7GhXMXQkBgH_JVcKMjCejQ)
 
