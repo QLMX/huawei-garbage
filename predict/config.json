@@ -1,0 +1,46 @@
+{
+    "model_type": "PyTorch",
+    "runtime":"python3.6",
+    "model_algorithm": "image_classification",
+    "metrics": {
+        "f1": 0.345294,
+        "accuracy": 0.462963,
+        "precision": 0.338977,
+        "recall": 0.351852
+    },
+    "apis": [{
+        "protocol": "http",
+        "url": "/",
+        "method": "post",
+        "request": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "input_img": {"type": "file"}
+                },
+                "required": ["input_img"]
+            }
+        },
+        "response": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "result": {"type": "string"}
+                },
+                "required": ["result"]
+            }
+        }
+    }],
+    "dependencies": [{
+        "installer": "pip",
+        "packages": [
+            {
+                "restraint": "ATLEAST",
+                "package_version": "5.2.0",
+                "package_name": "Pillow"
+            }
+        ]
+    }]
+}
