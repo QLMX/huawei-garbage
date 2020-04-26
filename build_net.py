@@ -2,7 +2,7 @@
 #-*- coding:utf-8 _*- 
 """
 @version: python3.6
-@author: ikkyu-wen
+@author: QLMX
 @contact: wenruichn@gmail.com
 @time: 2019-08-15 14:30
 """
